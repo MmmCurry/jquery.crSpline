@@ -51,7 +51,7 @@
 
 		numSegments = seq.length - 3;
 
-		res.css = function (t) {
+		res.getPos = function (t) {
 			// XXX For now, assume all segments take equal time
 			var seqNum = Math.floor(t * numSegments);
 			if (seqNum === numSegments) {
@@ -78,7 +78,7 @@
 	};
 
 	$.fx.step.crSpline = function (fx) {
-		var css = fx.end.css(1 - fx.pos);
+		var css = fx.end.getPos(fx.pos);
 		for (var i in css) {
 			fx.elem.style[i] = css[i];
 		}
