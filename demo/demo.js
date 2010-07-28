@@ -20,7 +20,7 @@ DEMO.run = function() {
 	}
 
 	// -- Important bit #1: Generate the spline animation object --
-	var spline = $.crSpline.buildSequence.apply(null, points);
+	var spline = $.crSpline.buildSequence(points);
 	
 	// Clean up visuals if we've run this once already
 	$("#mover").remove();
