@@ -1,5 +1,5 @@
 /**
- * jQuery.crSpline v0.0.1
+ * jQuery.crSpline v0.0.2
  * http://github.com/MmmCurry/jquery.crSpline
  *
  * Supports animation along Catmull-Rom splines based on a series of waypoints.
