@@ -1,6 +1,13 @@
 /**
- * jQuery support for animation along Catmull-Rom splines
+ * jQuery.crSpline v0.0.1
+ * http://github.com/MmmCurry/jquery.crSpline
+ *
+ * Supports animation along Catmull-Rom splines based on a series of waypoints.
+ * Usage: See demo.js, demo.html
+ * 
+ * Copyright 2010, M. Ian Graham
  * MIT License
+ *
  */
 
 (function($){
@@ -26,7 +33,7 @@
 
         };
 
-        // Return a CSS animation object based on a sequence of points
+        // Return an animation object based on a sequence of points
         // Arguments must be [x,y] pairs
         $.crSpline.buildSequence = function() {
                 var res = {};
