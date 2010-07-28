@@ -34,22 +34,22 @@
         };
 
         // Return an animation object based on a sequence of points
-        // Arguments must be [x,y] pairs
-        $.crSpline.buildSequence = function() {
+        // pointList must be an array of [x,y] pairs
+        $.crSpline.buildSequence = function(pointList) {
                 var res = {};
                 var seq = [];
                 var numSegments;
 
-                if (arguments.length < 2) {
+                if (pointList.length < 2) {
                         throw "crSpline.buildSequence requires at least two points";
                 }
 
                 // Generate the first p_1 so the caller doesn't need to provide it
-                seq.push(generateExtension(arguments[1], arguments[0]));
+                seq.push(generateExtension(pointList[1], pointList[0]));
 
                 // Throw provided points on the list
-                for (var i = 0; i < arguments.length; i++) {
-                        seq.push(arguments[i]);
+                for (var i = 0; i < pointList.length; i++) {
+                        seq.push(pointList[i]);
                 }
 
                 // Generate the last p2 so the caller doesn't need to provide it
