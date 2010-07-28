@@ -34,7 +34,7 @@ DEMO.run = function() {
 			.appendTo($(document.body))
 			.css({
 				left: points[i][0],
-				top: points[i][1],
+				top: points[i][1]
 			});
 
 		for (var j=0; j<dotsPerSeg; j++) {
@@ -44,7 +44,7 @@ DEMO.run = function() {
 				.appendTo($(document.body))
 				.css({
 					left: pos.left,
-					top: pos.top,
+					top: pos.top
 				});
 		}
 	}
