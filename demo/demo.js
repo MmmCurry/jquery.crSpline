@@ -1,3 +1,4 @@
+// Generate a random example spline and fancy visualization to help see what the plugin is doing
 DEMO = {};
 
 DEMO.run = function() {
@@ -13,16 +14,21 @@ DEMO.run = function() {
 
 	var points = [];
 
+	// Make a random list of waypoints for the animation to follow
 	for (i=0; i<numPoints; i++) {
 		points.push([Math.floor(Math.random()*(maxX-minX))+minX, Math.floor(Math.random()*(maxY-minY))+minY]);
 	}
 
+	// -- Important bit #1: Generate the spline animation object --
 	var spline = $.crSpline.buildSequence.apply(null, points);
 	
+	// Clean up visuals if we've run this once already
 	$("#mover").remove();
 	$(".waypoint").remove();
 	$(".path-dot").remove();
 
+	// Scary-looking stuff to visualize the waypoints and the trail of dots
+	// NOT needed for animation
 	for (i=0; i<numPoints; i++) {
 		$('<div class="waypoint">' + i + '</div>')
 			.appendTo($(document.body))
@@ -43,13 +49,11 @@ DEMO.run = function() {
 		}
 	}
 
+	// -- Important bit #2: Actually animate our mover object. --
 	$('<div id="mover"></div>')
 		.appendTo($(document.body))
-		.css({
-			left: points[0][0],
-			top: points[0][1],
-		})
 		.animate({ crSpline: spline }, 20000, function () {
+			// Re-run the demo with a new spline after we're done
 			window.setTimeout(function() {
 				DEMO.run();
 			}, 5000);
