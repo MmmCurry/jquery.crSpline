@@ -50,7 +50,6 @@
 
                 numSegments = seq.length - 3;
 
-
                 res.getPos = function (t) {
                         // XXX For now, assume all segments take equal time
                         var segNum = Math.floor(t * numSegments);
