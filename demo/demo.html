@@ -39,6 +39,7 @@
 
 #snippet {
 	float: left;
+	clear: both;
 	z-index: 0;
 	color: #dcdccc;
 	font-family: "Lucida Console", "Monaco", "Arial", "Verdana"
@@ -59,8 +60,19 @@
 	color: #4fff4f;
 }
 
+#settings {
+	float: left;
+	clear: both;
+	color: #dcdccc;
+}
+
+.option {
+	clear: both;
+}
+
 * {
 	border: 0;
+	font-family: "Lucida Console", "Monaco", "Arial", "Verdana";
 }
 </style>
 </head>
@@ -75,6 +87,10 @@ $("#mover").animate({
 	duration: 20000
 });
 </pre>
+</div>
+<div id="settings">
+<div class="option"><input type="checkbox" id="show-waypoints" checked="checked"> Show Waypoints</div>
+<div class="option"><input type="checkbox" id="show-trail" checked="checked"> Show Trail</div>
 </div>
 </body>
 </html>

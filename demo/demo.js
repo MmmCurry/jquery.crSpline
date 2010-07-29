@@ -1,5 +1,8 @@
 // Generate a random example spline and fancy visualization to help see what the plugin is doing
-DEMO = {};
+DEMO = {
+	showWaypoints: true,
+	showTrail: false
+	};
 
 DEMO.run = function() {
 
@@ -34,7 +37,8 @@ DEMO.run = function() {
 			.appendTo($(document.body))
 			.css({
 				left: points[i][0],
-				top: points[i][1]
+				top: points[i][1],
+				display: (DEMO.showWaypoints ? null : "none")
 			});
 
 		for (var j=0; j<dotsPerSeg; j++) {
@@ -44,7 +48,8 @@ DEMO.run = function() {
 				.appendTo($(document.body))
 				.css({
 					left: pos.left,
-					top: pos.top
+					top: pos.top,
+					display: (DEMO.showTrail ? null : "none")
 				});
 		}
 	}
@@ -62,5 +67,30 @@ DEMO.run = function() {
 };
 
 $(document).ready(function() {
+	$("#show-trail").click(function () {
+		if ($(this).is(":checked")) {
+			$(".path-dot").css({display: null});
+			DEMO.showTrail = true;
+		}
+		else {
+			$(".path-dot").css({display: "none"});
+			DEMO.showTrail = false;
+		}
+	});
+
+	$("#show-waypoints").click(function () {
+		if ($(this).is(":checked")) {
+			$(".waypoint").css({display: null});
+			DEMO.showWaypoints = true;
+		}
+		else {
+			$(".waypoint").css({display: "none"});
+			DEMO.showWaypoints = false;
+		}
+	});
+
+	$("#show-trail").attr("checked", DEMO.showTrail);
+	$("#show-waypoints").attr("checked", DEMO.showWaypoints);
+
 	DEMO.run();
 });
