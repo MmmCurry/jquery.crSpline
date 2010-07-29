@@ -38,7 +38,7 @@ DEMO.run = function() {
 			.css({
 				left: points[i][0],
 				top: points[i][1],
-				display: (DEMO.showWaypoints ? null : "none")
+				display: (DEMO.showWaypoints ? "inline" : "none")
 			});
 
 		for (var j=0; j<dotsPerSeg; j++) {
@@ -49,7 +49,7 @@ DEMO.run = function() {
 				.css({
 					left: pos.left,
 					top: pos.top,
-					display: (DEMO.showTrail ? null : "none")
+					display: (DEMO.showTrail ? "inline" : "none")
 				});
 		}
 	}
@@ -69,7 +69,7 @@ DEMO.run = function() {
 $(document).ready(function() {
 	$("#show-trail").click(function () {
 		if ($(this).is(":checked")) {
-			$(".path-dot").css({display: null});
+			$(".path-dot").css({display: "inline"});
 			DEMO.showTrail = true;
 		}
 		else {
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
 	$("#show-waypoints").click(function () {
 		if ($(this).is(":checked")) {
-			$(".waypoint").css({display: null});
+			$(".waypoint").css({display: "inline"});
 			DEMO.showWaypoints = true;
 		}
 		else {
