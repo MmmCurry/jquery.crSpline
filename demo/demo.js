@@ -40,7 +40,7 @@ DEMO.run = function() {
 		for (var j=0; j<dotsPerSeg; j++) {
 			var t = (i + j/dotsPerSeg) / points.length;
 			var pos = spline.getPos(t);
-			$('<div class="path-dot"></div>')
+			$('<div class="path-dot" />')
 				.appendTo($(document.body))
 				.css({
 					left: pos.left,
@@ -50,7 +50,7 @@ DEMO.run = function() {
 	}
 
 	// -- Important bit #2: Actually animate our mover object. --
-	$('<div id="mover"></div>')
+	$('<div id="mover" />')
 		.appendTo($(document.body))
 		.animate({ crSpline: spline }, 20000, function () {
 			// Re-run the demo with a new spline after we're done
