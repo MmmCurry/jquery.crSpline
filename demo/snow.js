@@ -21,7 +21,7 @@ DEMO.spawnParticle = function() {
 		path.push([currX, DEMO.minY+deltaY*(i+1)]);
         }
 
-	var elem = $('<img class="mover" src="snowflake_white.png" />');
+	var elem = $('<img class="mover" src="snowflake_white20.png" />');
 	elem.appendTo($(document.body));
 	if ($.browser.msie) {
 		elem.animate({
