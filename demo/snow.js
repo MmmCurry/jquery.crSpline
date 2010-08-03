@@ -28,14 +28,9 @@ DEMO.spawnParticle = function() {
 			crSpline: $.crSpline.buildSequence(path)
 		}, {
 			duration: dur,
-                        easing: "linear",
-                        complete: function () {
-                                var that = this;
-                                window.setTimeout(function() {
-                                        $(that).remove();
-                                }, 1000);
-                        }
-		});
+                        easing: "linear"
+		})
+		.fadeOut(2000, function() { $(this).remove(); });
 	}
 	else {
 		elem.rotate3Di(rotate, dur, {});
@@ -44,14 +39,9 @@ DEMO.spawnParticle = function() {
 			rotate3Di: rotate
 		     }, {
 			duration: dur,
-			easing: "linear",
-			complete: function () {
-				var that = this;
-				window.setTimeout(function() {
-					$(that).remove();
-				}, 1000);
-			}
-                });
+			easing: "linear"
+                })
+		.fadeOut(2000, function() { $(this).remove(); });
 	}
 };
 
