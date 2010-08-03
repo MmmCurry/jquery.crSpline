@@ -14,7 +14,7 @@ DEMO.spawnParticle = function() {
 	var deltaY = (DEMO.maxY-DEMO.minY)/DEMO.numSwings;
 	var rotate = Math.floor(Math.random()*1080);
 	var path = [[currX, DEMO.minY]];
-	var dur = Math.floor(Math.random()*4000) + 8000;
+	var dur = Math.floor(Math.random()*6000) + 7000;
 
 	for (var i=0; i<DEMO.numSwings; i++) {
 		currX = Math.min(currX + Math.floor((Math.random()-0.5)*DEMO.maxSwing*2), DEMO.maxX);
