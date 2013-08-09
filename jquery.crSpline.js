@@ -9,7 +9,6 @@
  * MIT License
  *
  */
-
 (function($){
 
         $.crSpline = {};
@@ -32,6 +31,24 @@
                         ];
 
         };
+
+        // Check if the browser supports CSS transitions
+        // https://gist.github.com/jackfuchs/556448
+        var supportsTransitions = function() {
+            var b = document.body || document.documentElement;
+            var s = b.style;
+            var p = 'transition';
+            if(typeof s[p] == 'string') {return true; }
+
+            // Tests for vendor specific prop
+            v = ['Moz', 'Webkit', 'Khtml', 'O', 'ms'],
+            p = p.charAt(0).toUpperCase() + p.substr(1);
+            for(var i=0; i<v.length; i++) {
+              if(typeof s[v[i] + p] == 'string') { return true; }
+            }
+
+            return false;
+        }
 
         // Return an animation object based on a sequence of points
         // pointList must be an array of [x,y] pairs
@@ -67,19 +84,34 @@
                                         };
                         }
                         var microT = (t - segNum/numSegments) * numSegments;
-                        var result = {
-                                left: interpolate(microT,
-                                                seq[segNum][0],
-                                                seq[segNum+1][0],
-                                                seq[segNum+2][0],
-                                                seq[segNum+3][0]) + "px",
-                                top: interpolate(microT,
-                                                seq[segNum][1],
-                                                seq[segNum+1][1],
-                                                seq[segNum+2][1],
-                                                seq[segNum+3][1]) + "px"
-                                };
-                        return result;
+                        var to_apply = {
+                            x: interpolate(microT,
+                                seq[segNum][0],
+                                seq[segNum+1][0],
+                                seq[segNum+2][0],
+                                seq[segNum+3][0]) + "px",
+                            y: interpolate(microT,
+                                seq[segNum][1],
+                                seq[segNum+1][1],
+                                seq[segNum+2][1],
+                                seq[segNum+3][1]) + "px"
+                        }
+
+                        if(supportsTransitions()){
+                            return {
+                                'transform'         : 'translate(' + to_apply.x + ', ' + to_apply.y +')',
+                                '-webkit-transform' : 'translate(' + to_apply.x + ', ' + to_apply.y +')',
+                                '-moz-transform'    : 'translate(' + to_apply.x + ', ' + to_apply.y +')',
+                                '-ms-transform'     : 'translate(' + to_apply.x + ', ' + to_apply.y +')',
+                                '-o-transform'      : 'translate(' + to_apply.x + ', ' + to_apply.y +')'
+                            };
+                        } else {
+                            return {
+                                left: to_apply.x,
+                                top: to_apply.y
+                            };
+                        }
+ 
                 };
                 return res;
         };
