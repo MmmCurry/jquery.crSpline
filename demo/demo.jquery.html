@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>jQuery.crSpline</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery.crSpline.js"></script>
+<script type="text/javascript" src="demo.jquery.js"></script>
+<style>
+.waypoint {
+	position: absolute;
+	z-index: 4;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	background-color: #7f9f7f;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.path-dot {
+	position: absolute;
+	z-index: 1;
+	width: 4px;
+	height: 4px;
+	font: 0px;
+	background-color: #dca3a3;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#mover {
+	position: absolute;
+	z-index: 5;
+	width: 20px;
+	height: 20px;
+	background-color: #4f4faf;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#snippet {
+	float: left;
+	clear: both;
+	z-index: 0;
+	color: #dcdccc;
+	font-family: "Lucida Console", "Monaco", "Arial", "Verdana"
+}
+
+#snippet pre {
+	font-family: "Lucida Console", "Monaco", "Arial", "Verdana"
+}
+
+#snippet a {
+	/*color: #4f4faf;*/
+	color: #5fbf5f;
+	text-decoration: none;
+}
+
+#snippet a:hover {
+	text-decoration: underline;
+	color: #4fff4f;
+}
+
+#settings {
+	float: left;
+	clear: both;
+	color: #dcdccc;
+}
+
+.option {
+	clear: both;
+}
+
+* {
+	border: 0;
+	font-family: "Lucida Console", "Monaco", "Arial", "Verdana";
+}
+</style>
+</head>
+<body bgcolor="#333333">
+<div id="snippet">
+<pre>
+// jQuery.crSpline
+// - <a href="http://github.com/MmmCurry/jquery.crSpline/raw/master/jquery.crSpline.js">Download</a> - <a href="http://github.com/MmmCurry/jquery.crSpline">View Source</a> - <a href="http://plugins.jquery.com/project/crSpline">Plugin Page</a> -
+
+$("#mover").animate({
+	crSpline: $.crSpline.buildSequence([[x0, y0], [x1, y1], ... [x9, y9]]),
+	duration: 20000
+});
+</pre>
+</div>
+<div id="settings">
+<div class="option"><input type="checkbox" id="show-waypoints" checked="checked"> Show Waypoints</div>
+<div class="option"><input type="checkbox" id="show-trail" checked="checked"> Show Trail</div>
+</div>
+</body>
+</html>

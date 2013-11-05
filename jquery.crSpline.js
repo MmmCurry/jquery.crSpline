@@ -3,9 +3,9 @@
  * http://github.com/MmmCurry/jquery.crSpline
  *
  * Supports animation along Catmull-Rom splines based on a series of waypoints.
- * Usage: See demo.js, demo.html
+ * Usage: See demo.jquery.js, demo.jquery.html
  * 
- * Copyright 2010, M. Ian Graham
+ * Copyright 2013, M. Ian Graham
  * MIT License
  *
  */
