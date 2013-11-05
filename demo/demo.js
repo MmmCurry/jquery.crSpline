@@ -23,8 +23,8 @@ DEMO.run = function() {
 	}
 
 	// -- Important bit #1: Generate the spline animation object --
-	var spline = $.crSpline.buildSequence(points);
-	
+	var spline = crSpline.create(points);
+
 	// Clean up visuals if we've run this once already
 	$("#mover").remove();
 	$(".waypoint").remove();
@@ -55,15 +55,15 @@ DEMO.run = function() {
 	}
 
 	// -- Important bit #2: Actually animate our mover object. --
-	$('<div id="mover" />')
-		.appendTo($(document.body))
-		.animate({ crSpline: spline }, 20000, function () {
-			// Re-run the demo with a new spline after we're done
-			window.setTimeout(function() {
-				DEMO.run();
-			}, 5000);
-		});
-	
+	var mover = $('<div id="mover" />')
+		.appendTo($(document.body));
+
+  // TODO: Fix pause/resume timing issues with the two statements below.
+  // setTimeout can hit too early if our animation gets delayed.
+  spline.playKeyframes(mover[0], 20000);
+  window.setTimeout(function () {
+    DEMO.run();
+  }, 25000);
 };
 
 $(document).ready(function() {

@@ -1,0 +1,25 @@
+{
+  "browser": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "undef": true,
+  "unused": true,
+  "white": true,
+
+  "indent": 2,
+  "maxcomplexity": 8,
+  "maxdepth": 5,
+  "maxlen": 130,
+  "maxparams": 6,
+  "maxstatements": 20,
+  "quotmark": "single"
+}
